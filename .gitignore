@@ -1,0 +1,19 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Environment files
+.env
+.env.local
+
+# Docker
+docker-compose.override.yml
+
+# Maven build output
+target/
+*.jar
+*.war
+*.ear
+build/
