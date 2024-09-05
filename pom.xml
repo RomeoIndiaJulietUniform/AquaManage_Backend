@@ -12,6 +12,8 @@
     <modules>
         <module>UserService</module>
         <module>TankService</module>
+        <module>ActuatorService</module>
+        <module>SensorService</module>
     </modules>
 
     <dependencyManagement>

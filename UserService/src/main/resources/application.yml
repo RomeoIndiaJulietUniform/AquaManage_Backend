@@ -1,19 +1,25 @@
+application:
+  name: UserService
+
 spring:
-  application:
-    name: UserService
-
-
   datasource:
-    url: jdbc:postgresql://localhost:5432/aquamanage
+    url: jdbc:postgresql://localhost:5432/userservice
     username: postgres
-    password: mine
+    password:
     driver-class-name: org.postgresql.Driver
-
   jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
     hibernate:
       ddl-auto: update
-      properties:
-        hibernate:
-          database-platform: org.hibernate.dialect.PostgreSQLDialect
-          format_sql: true
-          show_sql: true
+  server:
+    port: 8081
+
+logging:
+  level:
+    root: OFF
+    org.hibernate: DEBUG
+    org.springframework: OFF
+
