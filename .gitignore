@@ -1,8 +1,24 @@
-# IntelliJ IDEA
+# Maven build output
+target/
+
+# IDE-specific files
 .idea/
 *.iml
 *.iws
 *.ipr
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# NetBeans
+nbproject/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+Desktop.ini
 
 # Environment files
 .env
@@ -11,9 +27,42 @@
 # Docker
 docker-compose.override.yml
 
-# Maven build output
-target/
-*.jar
-*.war
-*.ear
+# Gradle build output (if you use Gradle alongside Maven)
+.gradle/
 build/
+
+# Node.js (if you use Node.js with Maven)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Python (if Python is used in your project)
+__pycache__/
+*.pyc
+*.pyo
+.python-version
+
+# Logs and runtime files
+*.log
+*.pid
+*.tmp
+*.swp
+*.swo
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Kubernetes
+*.yaml
+*.yml
+
+# Terraform
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
