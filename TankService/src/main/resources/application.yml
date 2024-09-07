@@ -1,10 +1,12 @@
+server:
+  port: 8082
+
 spring:
   application:
     name: TankService
 
-
   datasource:
-    url: jdbc:postgresql://localhost:5432/aquamanage
+    url: jdbc:postgresql://postgres:5432/aquamanage
     username: postgres
     password: mine
     driver-class-name: org.postgresql.Driver
@@ -12,8 +14,15 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-      properties:
-        hibernate:
-          database-platform: org.hibernate.dialect.PostgreSQLDialect
-          format_sql: true
-          show_sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+
+
+  logging:
+    level:
+      root: WARN
+      org.springframework.web: DEBUG
+      org.hibernate: ERROR
