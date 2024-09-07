@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8080
 
 spring:
   application:
@@ -18,11 +18,12 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
+        boot:
+          allow_jdbc_metadata_access: false
     show-sql: true
 
   logging:
     level:
-     root: WARN
-     org.springframework.web: DEBUG
-     org.hibernate: ERROR
-
+      root: WARN
+      org.springframework.web: DEBUG
+      org.hibernate: ERROR

@@ -10,6 +10,6 @@ public class TankServiceController {
 
     @GetMapping("/v1/")
     String heyBro(){
-        return "maar toh usi din giya thee jis din gareeb ke ghar peh..";
+        return "happy ganesh chaturthi";
     }
 }
