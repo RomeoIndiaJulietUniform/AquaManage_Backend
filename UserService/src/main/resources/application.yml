@@ -6,24 +6,28 @@ spring:
     name: UserService
 
   datasource:
-    url: jdbc:postgresql://postgres:5432/aquamanage
+    url: jdbc:postgresql://localhost:5432/userservice
     username: postgres
     password: mine
     driver-class-name: org.postgresql.Driver
 
   jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
-        boot:
-          allow_jdbc_metadata_access: false
     show-sql: true
 
-  logging:
-    level:
-      root: WARN
-      org.springframework.web: DEBUG
-      org.hibernate: ERROR
+  sql:
+    init:
+      mode: always
+
+logging:
+  level:
+    root: WARN
+    org.springframework.web: DEBUG
+    org.hibernate: ERROR
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
