@@ -23,13 +23,13 @@ public class UserServiceController {
     }
 
     @GetMapping("/")
-    String heyBro(){
+    public String heyBro() {
         return "Bye Bye pls american pie";
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<UserServiceEntity> getUserById(@PathVariable Long id) {
-        Optional<UserServiceEntity> user = userService.getUserById(id);
+    @GetMapping("/email/{email}")
+    public ResponseEntity<UserServiceEntity> getUserByEmail(@PathVariable("email") String email) {
+        Optional<UserServiceEntity> user = userService.getUserByEmail(email);
         return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
@@ -40,8 +40,15 @@ public class UserServiceController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteUser(@PathVariable("id") Long id) {
         userService.deleteUser(id);
+        return ResponseEntity.noContent().build();
+    }
+
+
+    @DeleteMapping("/email/{email}")
+    public ResponseEntity<Void> deleteUserByEmail(@PathVariable("email") String email) {
+        userService.deleteUserByEmail(email);
         return ResponseEntity.noContent().build();
     }
 }

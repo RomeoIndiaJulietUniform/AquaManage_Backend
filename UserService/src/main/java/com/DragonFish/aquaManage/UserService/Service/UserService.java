@@ -2,6 +2,7 @@ package com.DragonFish.aquaManage.UserService.Service;
 
 import com.DragonFish.aquaManage.UserService.Repository.UserServiceRepository;
 import com.DragonFish.aquaManage.UserService.Entity.UserServiceEntity;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,5 +29,15 @@ public class UserService {
 
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
+    }
+
+
+    public Optional<UserServiceEntity> getUserByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
+    @Transactional
+    public void deleteUserByEmail(String email) {
+        userRepository.deleteByEmail(email);
     }
 }
