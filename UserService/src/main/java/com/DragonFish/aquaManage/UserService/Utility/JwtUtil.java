@@ -5,20 +5,11 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.stereotype.Component;
 import java.util.Date;
-import java.security.SecureRandom;
-import java.util.Base64;
 
 @Component
 public class JwtUtil {
 
-    private final String SECRET_KEY = generateSecretKey(32);
-
-    public static String generateSecretKey(int length) {
-        SecureRandom secureRandom = new SecureRandom();
-        byte[] key = new byte[length];
-        secureRandom.nextBytes(key);
-        return Base64.getEncoder().encodeToString(key);
-    }
+    private static final String SECRET_KEY = "7f10d1d9a9d42e6b8298a94baf4b6218d2c4e12b0651f6d0072ea72f83062a7a";
 
     public String generateToken(String username) {
         return Jwts.builder()
