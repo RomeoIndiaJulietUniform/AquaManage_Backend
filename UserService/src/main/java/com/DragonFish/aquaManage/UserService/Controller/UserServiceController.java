@@ -22,7 +22,7 @@ public class UserServiceController {
         return userService.getAllUsers();
     }
 
-    @GetMapping("/")
+    @GetMapping("/riju")
     public String heyBro() {
         return "Bye Bye pls american pie";
     }

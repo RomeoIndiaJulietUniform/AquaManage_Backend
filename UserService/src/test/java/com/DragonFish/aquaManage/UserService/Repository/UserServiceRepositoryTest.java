@@ -1,32 +1,47 @@
-//package com.DragonFish.aquaManage.UserService.Repository;
-//
-//import com.DragonFish.aquaManage.UserService.Entity.UserServiceEntity;
-//import org.junit.jupiter.api.Test;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-//import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
-//
-//import static org.assertj.core.api.Assertions.assertThat;
-//
-//@DataJpaTest
-//@SpringJUnitConfig
-//public class UserServiceRepositoryTest {
-//
-//    @Autowired
-//    private UserServiceRepository repository;
-//
-//    @Test
-//    public void testSaveUser() {
-//        UserServiceEntity user = new UserServiceEntity();
-//        user.setName("Test User");
-//        user.setUserName("testuser");
-//        user.setEmail("testuser@example.com");
-//        user.setPassword("password");
-//
-//        UserServiceEntity savedUser = repository.save(user);
-//
-//        assertThat(savedUser).isNotNull();
-//        assertThat(savedUser.getId()).isNotNull();
-//        assertThat(savedUser.getName()).isEqualTo("Test User");
-//    }
-//}
+package com.DragonFish.aquaManage.UserService.Repository;
+
+import com.DragonFish.aquaManage.UserService.Entity.UserServiceEntity;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import java.util.Optional;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.*;
+
+class UserServiceRepositoryTest {
+
+    @Mock
+    private UserServiceRepository userServiceRepository;
+
+    private UserServiceEntity user;
+
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
+        user = new UserServiceEntity();
+        user.setId(1L);
+        user.setEmail("test@example.com");
+    }
+
+    @Test
+    void testFindByEmail() {
+        when(userServiceRepository.findByEmail(anyString())).thenReturn(Optional.of(user));
+
+        Optional<UserServiceEntity> foundUser = userServiceRepository.findByEmail("test@example.com");
+
+        assertEquals(user.getEmail(), foundUser.get().getEmail());
+        verify(userServiceRepository, times(1)).findByEmail("test@example.com");
+    }
+
+    @Test
+    void testDeleteByEmail() {
+        doNothing().when(userServiceRepository).deleteByEmail(anyString());
+
+        userServiceRepository.deleteByEmail("test@example.com");
+
+        verify(userServiceRepository, times(1)).deleteByEmail("test@example.com");
+    }
+}
