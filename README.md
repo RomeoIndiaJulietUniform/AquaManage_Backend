@@ -17,39 +17,6 @@ AquaManage is a backend application designed for managing aquariums and related 
 - **Docker Compose:** Simplifies running multi-container Docker applications.
 - **JWT (JSON Web Token):** For secure authentication and authorization.
 
-## Prerequisites
-
-- **Docker**
-- **Docker Compose**
-- **Maven** (version 3.6.0 or higher)
-- **Java** (version 21)
-
-### Running the Application
-
-1. Clone the repository:
-
-   ```bash
-   git clone <your-repository-url>
-   cd AquaManage
-   ```
-2. Build and run the services using Docker Compose:
-  
-   ```bash
-    docker-compose up --build
-   ```
-3. Access the Services
-
-- **User Service:** `http://localhost:8081`
-- **Tank Service:** `http://localhost:8082`
-- **Actuator Service:** `http://localhost:8083`
-- **Sensor Service:** `http://localhost:8084`
-
-4. To stop the services, run:
-
-    ```bash
-    docker-compose down
-    ```
-
 ## 👨‍💻 Contributors
 Riju Mondal – Project Maintainer  
 Contributors – Special thanks to all contributors
