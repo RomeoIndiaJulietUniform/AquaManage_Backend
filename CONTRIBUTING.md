@@ -39,12 +39,20 @@ Thank you for considering contributing to our project!
    git clone <your-repository-url>
    cd AquaManage
    ```
-2. Build and run the services using Docker Compose:
+ 
+2. Build the Packages of Each service (Use Java 21 Strictly , we use Oracle official version you may use OpenJDK)   
+
+   ```bash
+   cd to_each_service(i.e. UserService,SensorService,ActuatorService,TankService)
+   mvn clean package 
+   ```  
+
+3. Build and run the services using Docker Compose:
 
    ```bash
     docker-compose up --build
    ```
-3. Access the Services
+4. Access the Services
 
 - **User Service:** `http://localhost:8081`
 - **Tank Service:** `http://localhost:8082`
