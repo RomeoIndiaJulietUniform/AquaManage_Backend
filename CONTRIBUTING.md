@@ -44,7 +44,7 @@ Thank you for considering contributing to our project!
 
    ```bash
    cd to_each_service(i.e. UserService,SensorService,ActuatorService,TankService)
-   mvn clean package 
+   mvn clean package -DskipTests
    ```  
 
 3. Build and run the services using Docker Compose:
